@@ -1,7 +1,37 @@
-export default function SpellListView({ spells, onSelectSpell }) {
+import { getModifier, formatModifier } from '../../data/gameTables'
+
+export default function SpellListView({ spells, character, onSelectSpell }) {
+  const intMod = getModifier(character.intelligence)
+  const totalBonus = intMod + character.spellCheckBonus
+  const bonusLabel = totalBonus >= 0 ? `+${totalBonus}` : `${totalBonus}`
+
   return (
     <div style={{ padding: '20px 16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+
+      {/* Spell Check Reference */}
+      <div style={{
+        background: '#1a1a1a',
+        borderRadius: '8px',
+        padding: '14px 16px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '8px',
+      }}>
+        <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '11px', color: '#555', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+          Spell Check
+        </div>
+        <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '20px', fontWeight: 600, color: '#6aaa6a' }}>
+          d20 {bonusLabel}
+        </div>
+        <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '11px', color: '#444', textAlign: 'right' }}>
+          <div>{formatModifier(character.intelligence)} INT</div>
+          <div>+{character.spellCheckBonus} lvl</div>
+        </div>
+      </div>
+
       <div style={sectionLabel}>Spells Known</div>
+
       {spells.length === 0 && (
         <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '13px', color: '#444', textAlign: 'center', marginTop: '40px' }}>
           No spells known

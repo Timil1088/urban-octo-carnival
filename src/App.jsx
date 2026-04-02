@@ -39,7 +39,7 @@ export default function App() {
           <StatsView character={character} updateCharacter={updateCharacter} />
         )}
         {activeTab === 'spells' && !selectedSpell && (
-          <SpellListView spells={spells} onSelectSpell={handleSelectSpell} />
+          <SpellListView spells={spells} character={character} onSelectSpell={handleSelectSpell} />
         )}
         {activeTab === 'spells' && selectedSpell && (
           <SpellDetailView
