@@ -2,14 +2,14 @@
   "name": "DCC Companion",
   "short_name": "DCC",
   "description": "DCC RPG character companion for Elf spellcasters",
-  "start_url": "/dcc-companion/",
+  "start_url": "/urban-octo-carnival/",
   "display": "fullscreen",
   "background_color": "#0f0f0f",
   "theme_color": "#0f0f0f",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/dcc-companion/icon.svg",
+      "src": "/urban-octo-carnival/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

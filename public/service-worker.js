@@ -5,10 +5,10 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
       cache.addAll([
-        '/dcc-companion/',
-        '/dcc-companion/index.html',
-        '/dcc-companion/manifest.json',
-        '/dcc-companion/icon.svg',
+        '/urban-octo-carnival/',
+        '/urban-octo-carnival/index.html',
+        '/urban-octo-carnival/manifest.json',
+        '/urban-octo-carnival/icon.svg',
       ])
     )
   )
@@ -37,7 +37,7 @@ self.addEventListener('fetch', (event) => {
     // Navigation: try network, fall back to cached index
     event.respondWith(
       fetch(request).catch(() =>
-        caches.match('/dcc-companion/index.html')
+        caches.match('/urban-octo-carnival/index.html')
       )
     )
   } else {
